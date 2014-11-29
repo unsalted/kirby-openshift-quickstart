@@ -23,6 +23,7 @@ ln -sf $OPENSHIFT_DATA_DIR/avatars $OPENSHIFT_REPO_DIR/assets
 if [ ! -d $OPENSHIFT_DATA_DIR/accounts ]; then
 echo "creating /accounts directory in DATA..."
 mkdir $OPENSHIFT_DATA_DIR/accounts
+fi
 
 ln -sf $OPENSHIFT_DATA_DIR/accounts $OPENSHIFT_REPO_DIR/site
 echo "build finished"
