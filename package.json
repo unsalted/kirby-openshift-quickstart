@@ -1,0 +1,19 @@
+{
+  "name": "kirby-init",
+  "version": "1.0.0",
+  "description": "Quick launch for my kirby development projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "unsaltednu",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-autoprefixer": "^2.0.0",
+    "grunt-contrib-less": "^0.12.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-kss": "^0.4.0",
+    "grunt-lesslint": "^1.1.13"
+  }
+}
