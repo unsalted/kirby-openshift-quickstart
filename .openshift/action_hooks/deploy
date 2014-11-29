@@ -1,0 +1,15 @@
+#create and symlink content directories
+
+ln -sf $OPENSHIFT_DATA_DIR/content $OPENSHIFT_REPO_DIR/content
+
+
+
+ln -sf $OPENSHIFT_DATA_DIR/thumbs $OPENSHIFT_REPO_DIR/thumbs
+
+
+
+ln -sf $OPENSHIFT_DATA_DIR/avatars $OPENSHIFT_REPO_DIR/assets/avatars
+
+
+
+ln -sf $OPENSHIFT_DATA_DIR/accounts $OPENSHIFT_REPO_DIR/site/accounts
