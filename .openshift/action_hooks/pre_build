@@ -1,0 +1,30 @@
+#create and symlink content directories
+if [ ! -d $OPENSHIFT_DATA_DIR/content ]; then
+echo "creating /content directory in DATA...""
+mkdir $OPENSHIFT_DATA_DIR/content
+fi
+
+ln -sf $OPENSHIFT_DATA_DIR/content $OPENSHIFT_REPO_DIR/content
+
+if [ ! -d $OPENSHIFT_DATA_DIR/thumbs ]; then
+echo "creating /content directory in DATA..."
+mkdir $OPENSHIFT_DATA_DIR/thumbs
+fi
+
+ln -sf $OPENSHIFT_DATA_DIR/thumbs $OPENSHIFT_REPO_DIR/thumbs
+
+if [ ! -d $OPENSHIFT_DATA_DIR/avatars ]; then
+echo "creating /avatars directory in DATA..."
+mkdir $OPENSHIFT_DATA_DIR/avatars
+fi
+
+ln -sf $OPENSHIFT_DATA_DIR/avatars $OPENSHIFT_REPO_DIR/assets/avatars
+
+if [ ! -d $OPENSHIFT_DATA_DIR/accounts ]; then
+echo "creating /accounts directory in DATA..."
+mkdir $OPENSHIFT_DATA_DIR/accounts
+fi
+
+ln -sf $OPENSHIFT_DATA_DIR/accounts $OPENSHIFT_REPO_DIR/site/accounts
+echo "finished build"
+
