@@ -1,4 +1,4 @@
-# Openshift Kirby Quickstart
+# kirby-openshift-quickstart
 
 This is a quickstart I put together for deploying Kirby to openshift.
 This quickstart has the action_hooks included to symlink content, accounts, avatars and thumbs with the `$OPENSHIFT_DATA` directory.
