@@ -36,7 +36,7 @@ if [ ! -d $OPENSHIFT_DATA_DIR/accounts ]; then
   echo "creating /accounts directory in DATA..."
   mkdir $OPENSHIFT_DATA_DIR/accounts
   # prevent looking in to bare directory
-  touch index.php
+  touch $OPENSHIFT_DATA_DIR/accounts/index.php
 fi
 
 # symlink accounts
