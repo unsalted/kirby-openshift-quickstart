@@ -15,14 +15,6 @@ RewriteEngine on
 # Set the RewriteBase to:
 # RewriteBase /mysite
 
-# RewriteBase equivalent - Production
-RewriteCond %{HTTP_HOST} !^localhost$
-RewriteRule . - [E=REWRITEBASE:/]
-
-# RewriteBase equivalent - Development
-RewriteCond %{HTTP_HOST} ^localhost$
-RewriteRule . - [E=REWRITEBASE:/unsalted/portfolio]
-
 # block text files in the content folder from being accessed directly
 RewriteRule ^content/(.*)\.(txt|md|mdown)$ error [R=301,L]
 
