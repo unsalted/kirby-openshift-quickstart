@@ -1,3 +1,21 @@
+# Openshift Kirby Quickstart
+
+This is a quickstart I put together for deploying Kirby to openshift.
+This quickstart has the action_hooks included to symlink content, accounts, avatars and thumbs with the `$OPENSHIFT_DATA` directory.
+
+## Getting started
+
+To use locally you will need to add the `/thumbs`, `/assets/avatars`, and `/site/accounts` folders as they are intentionally ignored (to prevent overwriting).
+
+Once you have swithced from development to production you will want to ignore the content folder as well otherwise you will overwrite content on your openshift site.  The `deploy` action_hook handles this transition by checking for the content folder in the deployed build, once it is removed it uses the symlinked `$OPENSHIFT_DATA/content` directory which will contain the latest copy of your content directory (prior to ignoring it).
+
+## Usage
+
+All kirby licensing rules still apply to the kirby files included in this quickstart.  Which is why the standard kirby README is below.  I claim no responsibility of or rights to the kirby code, this is just an openshift quickstart.
+
+---
+
+
 # Kirby
 
 Kirby is a file-based CMS.
