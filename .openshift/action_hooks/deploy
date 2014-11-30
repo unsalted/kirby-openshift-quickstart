@@ -1,29 +1,43 @@
-#create and symlink content directories
+# init content directory
 if [ ! -d $OPENSHIFT_DATA_DIR/content ]; then
-echo "creating /content directory in DATA..."
-mkdir $OPENSHIFT_DATA_DIR/content
+  echo "creating /content directory in DATA..."
+  mkdir $OPENSHIFT_DATA_DIR/content
 fi
 
-ln -sf $OPENSHIFT_DATA_DIR/content $OPENSHIFT_REPO_DIR
-
-if [ ! -d $OPENSHIFT_DATA_DIR/thumbs]; then
-echo "creating /content directory in DATA..."
-mkdir $OPENSHIFT_DATA_DIR/thumbs
+# check if production or dev content directory
+if [ ! -d $OPENSHIFT_REPO_DIR/content ]; then
+  # If no content directory in repo (ignored once in production) symlink data directory.
+  ln -sf $OPENSHIFT_DATA_DIR/content $OPENSHIFT_REPO_DIR
+else
+  # keep a copy of the structure in data, so it is ready for swap to production.
+  cp -rf $OPENSHIFT_REPO_DIR/content/* $OPENSHIFT_DATA_DIR/content
 fi
 
+# init thumbs
+if [ ! -d $OPENSHIFT_DATA_DIR/thumbs]; then 
+  echo "creating /thumbs directory in DATA..."
+  mkdir $OPENSHIFT_DATA_DIR/thumbs
+fi
+
+# symlink thumbs
 ln -sf $OPENSHIFT_DATA_DIR/thumbs $OPENSHIFT_REPO_DIR
 
+# init avatars
 if [ ! -d $OPENSHIFT_DATA_DIR/avatars ]; then
-echo "creating /avatars directory in DATA..."
-mkdir $OPENSHIFT_DATA_DIR/avatars
+  echo "creating /avatars directory in DATA..."
+  mkdir $OPENSHIFT_DATA_DIR/avatars
 fi
 
+# symlink avatars
 ln -sf $OPENSHIFT_DATA_DIR/avatars $OPENSHIFT_REPO_DIR/assets
 
+# init accounts
 if [ ! -d $OPENSHIFT_DATA_DIR/accounts ]; then
-echo "creating /accounts directory in DATA..."
-mkdir $OPENSHIFT_DATA_DIR/accounts
+  echo "creating /accounts directory in DATA..."
+  mkdir $OPENSHIFT_DATA_DIR/accounts
 fi
 
+# symlink accounts
 ln -sf $OPENSHIFT_DATA_DIR/accounts $OPENSHIFT_REPO_DIR/site
+
 echo "build finished"
