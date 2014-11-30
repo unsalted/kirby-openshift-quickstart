@@ -1,5 +1,5 @@
 .DS_Store
-/site/accounts
+/site/accounts/*
 /assets/avatars
 /thumbs/*
 node_modules
